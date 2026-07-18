@@ -59,3 +59,7 @@ After the first production build, ESLint scanned generated `apps/web/.next` outp
 ## Contract-harness extension
 
 The isolated Sub0 ABI package, direct PostgreSQL schema script, remote runner, redeploy-sentinel probes, fenced background fallback, and schedule-deduplication fallback are present and locally tested. They have not contacted LingoQL or Sub0. `pnpm platform:gate` remains correctly closed until the H-04 evidence replaces every `not_tested` result in `docs/platform-contract-report.json`.
+
+## H-02 verified cost preflight
+
+At 2026-07-18T09:58:05Z, the account owner confirmed a $20.00 credit, no payment method, and automatic overage disabled. The sanitized evidence is `docs/platform-evidence/2026-07-18_H-02-lingoql-credit.md`; `pnpm cost:preflight` passed without reading or printing any account secret.

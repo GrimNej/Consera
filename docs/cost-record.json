@@ -3,10 +3,13 @@
   "billingSafety": {
     "paymentMethodAttached": false,
     "automaticOverageEnabled": false,
-    "reviewedAt": null,
-    "evidence": null
+    "reviewedAt": "2026-07-18T09:58:05.000Z",
+    "evidence": {
+      "artifactPath": "docs/platform-evidence/2026-07-18_H-02-lingoql-credit.md",
+      "recordedAt": "2026-07-18T09:58:05.000Z"
+    }
   },
-  "startingCreditUsd": null,
+  "startingCreditUsd": 20,
   "endingCreditUsd": null,
   "burnExperiment": {
     "startedAt": null,

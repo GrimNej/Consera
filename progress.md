@@ -6,7 +6,7 @@ Source of truth: [`CONSERA_IMPLEMENTATION_BLUEPRINT.md`](./CONSERA_IMPLEMENTATIO
 
 - Current phase: Phase 0 — repository, platform contracts, and cost proof
 - Gate: `pnpm platform:gate` must pass before Phase 1
-- Resume marker: H-02 waiting for credit and billing verification after local harness commit `35fe21f`
+- Resume marker: H-02 verified; preparing H-03 deployment connection after `80849f1`
 
 ## Phase 0 — bootstrap and operator records
 
@@ -20,7 +20,7 @@ Source of truth: [`CONSERA_IMPLEMENTATION_BLUEPRINT.md`](./CONSERA_IMPLEMENTATIO
 - [x] Prepare H-01 verification script, harmless bootstrap commit, and remote checklist
 - [x] Verify H-01 GitHub remote (public `origin/main`, verified commit `ff50ec5`)
 - [x] Assemble the docs-driven Sub0 ABI package and executable remote contract runner; local checks recorded in `docs/baseline-results.md`
-- [ ] Verify H-02 LingoQL credit and billing protections (waiting for user)
+- [x] Verify H-02 LingoQL credit and billing protections; `pnpm cost:preflight` passed
 
 ### Authentication identity integrity
 

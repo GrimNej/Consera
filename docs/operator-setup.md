@@ -4,7 +4,7 @@ This guide contains only actions that require the project owner. It never contai
 
 ## Current status
 
-H-01 is verified. The local cost preflight and full isolated Sub0 contract harness are committed. H-02 is the only action currently requested; no LingoQL project, service, Sub0 resource, credential, or deployment should be created yet.
+H-01 and H-02 are verified. Local LingoQL deployment preparation continues before H-03 is requested; do not create a project, service, Sub0 resource, credential, or deployment until the next numbered checkpoint.
 
 ## H-01 — GitHub remote
 
@@ -12,7 +12,7 @@ In GitHub, choose **+ → New repository**, choose the intended owner, enter `co
 
 Expected result: the repository URL is visible and has no conflicting initial commit. Return only its HTTPS or SSH clone URL. The agent will add the remote, push the prepared bootstrap commit, and verify visibility with `pnpm github:verify-h01`. Safe rollback: remove the remote or delete the empty repository from GitHub; local work remains intact.
 
-## H-02 â€” verify credit and billing safety
+## H-02 â€” verify credit and billing safety (verified)
 
 The hackathon's current [Get started instructions](https://ztq.devpost.com/) say that Devpost registration provides a LingoQL signup link and $20 credit; they also provide a direct LingoQL link if the email has not arrived. The public LingoQL docs do not document the authenticated billing screen, so use the current account screen's **Credits**, **Usage**, or **Billing** area rather than relying on a guessed button name.
 
@@ -27,7 +27,7 @@ If the credit is not visible, return `credit_not_visible`; if billing protection
 
 ## Upcoming LingoQL and Sub0 actions
 
-H-03 and H-04 are intentionally blocked until H-02 verifies the credit and billing controls. Before each, the agent will re-check official documentation and provide the current user action, expected screen, verification command, and rollback action.
+H-03 preparation is now in progress. H-04 remains blocked until the project/repository connection and no-secret health deployment are verified.
 
 ## Upcoming Groq action
 
