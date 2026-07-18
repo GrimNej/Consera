@@ -1,0 +1,57 @@
+{
+  "id": "consera-contract-claim-job-v1",
+  "resource": "consera-contract-claim-job",
+  "tokenize": {
+    "type": "JWT",
+    "algorithm": "HS256",
+    "encryption_key": "$ENV.CONTRACT_JWT_KEY"
+  },
+  "protected": {
+    "provide_as": "Authorization",
+    "extract_claims": ["id"]
+  },
+  "actionables": [
+    {
+      "id": 1,
+      "mode": "QUERY",
+      "payload_validation": [
+        {
+          "field": {
+            "organizationId": {
+              "type": "NUMBER"
+            }
+          }
+        },
+        {
+          "field": {
+            "jobKey": {
+              "type": "STRING"
+            }
+          },
+          "min_length": 8,
+          "max_length": 120
+        },
+        {
+          "field": {
+            "leaseOwner": {
+              "type": "STRING"
+            }
+          },
+          "min_length": 8,
+          "max_length": 120
+        }
+      ],
+      "sql_query": {
+        "query": "SELECT * FROM consera_contract.contract_claim_job($1, $2, $3, $4)",
+        "parameters": [
+          "$PROTECTED.id",
+          "$PAYLOAD.organizationId",
+          "$PAYLOAD.jobKey",
+          "$PAYLOAD.leaseOwner"
+        ]
+      },
+      "returnables": ["job_id", "lease_token", "lease_generation"]
+    }
+  ],
+  "returnables": ["job_id", "lease_token", "lease_generation"]
+}

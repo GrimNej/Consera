@@ -1,3 +1,4 @@
+import { randomBytes } from 'node:crypto';
 import { mkdir, readFile, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
@@ -8,6 +9,11 @@ const supportedNames = new Set([
   'SUB0_BASE_URL',
   'SUB0_SERVICE_TOKEN_CURRENT',
   'SUB0_SERVICE_TOKEN_PREVIOUS',
+  'SUB0_CONTRACT_BASE_URL',
+  'DATABASE_URL_CONTRACT',
+  'CONTRACT_HARNESS_KEY',
+  'CONTRACT_JWT_KEY',
+  'CONTRACT_RUNTIME_PROBE',
   'SESSION_KEY_CURRENT',
   'SESSION_KEY_PREVIOUS',
   'GROQ_API_KEY',
@@ -68,4 +74,8 @@ export async function localSecretFileState(): Promise<'missing' | 'present'> {
     }
     throw error;
   }
+}
+
+export function generateOpaqueSecret(): string {
+  return randomBytes(32).toString('base64url');
 }

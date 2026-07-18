@@ -1,0 +1,40 @@
+{
+  "id": "consera-contract-register-v1",
+  "resource": "consera-contract-register",
+  "tokenize": {
+    "type": "JWT",
+    "algorithm": "HS256",
+    "expiration": 600,
+    "encryption_key": "$ENV.CONTRACT_JWT_KEY",
+    "custom_claim_fields": ["id"],
+    "property_name": "token"
+  },
+  "actionables": [
+    {
+      "id": 1,
+      "mode": "QUERY",
+      "payload_validation": [
+        {
+          "field": {
+            "email": {
+              "type": "EMAIL"
+            }
+          },
+          "min_length": 5,
+          "max_length": 255
+        }
+      ],
+      "sql_query": {
+        "query": "INSERT INTO consera_contract.contract_subjects (email) SELECT $1 WHERE $2 = $3 RETURNING id, email",
+        "unique": ["email"],
+        "parameters": [
+          "$PAYLOAD.email",
+          "$HEADER.x-contract-key",
+          "$ENV.CONTRACT_HARNESS_KEY"
+        ]
+      },
+      "returnables": ["id", "email"]
+    }
+  ],
+  "returnables": ["id", "email", "token"]
+}

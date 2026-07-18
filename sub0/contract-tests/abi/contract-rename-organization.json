@@ -1,0 +1,43 @@
+{
+  "id": "consera-contract-rename-organization-v1",
+  "resource": "consera-contract-rename-organization",
+  "tokenize": {
+    "type": "JWT",
+    "algorithm": "HS256",
+    "encryption_key": "$ENV.CONTRACT_JWT_KEY"
+  },
+  "protected": {
+    "provide_as": "Authorization",
+    "extract_claims": ["id"]
+  },
+  "actionables": [
+    {
+      "id": 1,
+      "mode": "QUERY",
+      "payload_validation": [
+        {
+          "field": {
+            "organizationId": {
+              "type": "NUMBER"
+            }
+          }
+        },
+        {
+          "field": {
+            "label": {
+              "type": "STRING"
+            }
+          },
+          "min_length": 8,
+          "max_length": 120
+        }
+      ],
+      "sql_query": {
+        "query": "SELECT * FROM consera_contract.contract_rename_organization($1, $2, $3)",
+        "parameters": ["$PROTECTED.id", "$PAYLOAD.organizationId", "$PAYLOAD.label"]
+      },
+      "returnables": ["updated_label"]
+    }
+  ],
+  "returnables": ["updated_label"]
+}

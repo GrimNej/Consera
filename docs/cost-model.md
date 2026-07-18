@@ -2,6 +2,8 @@
 
 Status: unmeasured. No LingoQL resource has been provisioned and no payment method will be attached.
 
+`docs/cost-record.json` is the machine-validated source for H-02 and H-07. `pnpm cost:preflight` refuses to pass until it has a sanitized H-02 evidence reference, at least $20 starting credit, no payment method, and automatic overage disabled.
+
 ## Assumptions fixed by the blueprint
 
 - Hard out-of-pocket ceiling: $0.

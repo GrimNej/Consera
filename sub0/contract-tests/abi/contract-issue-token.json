@@ -1,0 +1,39 @@
+{
+  "id": "consera-contract-issue-token-v1",
+  "resource": "consera-contract-issue-token",
+  "tokenize": {
+    "type": "JWT",
+    "algorithm": "HS256",
+    "expiration": 600,
+    "encryption_key": "$ENV.CONTRACT_JWT_KEY",
+    "custom_claim_fields": ["id"],
+    "property_name": "token"
+  },
+  "actionables": [
+    {
+      "id": 1,
+      "mode": "QUERY",
+      "payload_validation": [
+        {
+          "field": {
+            "email": {
+              "type": "EMAIL"
+            }
+          },
+          "min_length": 5,
+          "max_length": 255
+        }
+      ],
+      "sql_query": {
+        "query": "SELECT id, email FROM consera_contract.contract_subjects WHERE email = $1 AND $2 = $3",
+        "parameters": [
+          "$PAYLOAD.email",
+          "$HEADER.x-contract-key",
+          "$ENV.CONTRACT_HARNESS_KEY"
+        ]
+      },
+      "returnables": ["id", "email"]
+    }
+  ],
+  "returnables": ["id", "email", "token"]
+}

@@ -1,0 +1,34 @@
+{
+  "id": "consera-contract-read-organization-v1",
+  "resource": "consera-contract-read-organization",
+  "tokenize": {
+    "type": "JWT",
+    "algorithm": "HS256",
+    "encryption_key": "$ENV.CONTRACT_JWT_KEY"
+  },
+  "protected": {
+    "provide_as": "Authorization",
+    "extract_claims": ["id"]
+  },
+  "actionables": [
+    {
+      "id": 1,
+      "mode": "QUERY",
+      "payload_validation": [
+        {
+          "field": {
+            "organizationId": {
+              "type": "NUMBER"
+            }
+          }
+        }
+      ],
+      "sql_query": {
+        "query": "SELECT * FROM consera_contract.contract_read_organization($1, $2)",
+        "parameters": ["$PROTECTED.id", "$PAYLOAD.organizationId"]
+      },
+      "returnables": ["organization_id", "label", "current_version"]
+    }
+  ],
+  "returnables": ["organization_id", "label", "current_version"]
+}

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "billingSafety": {
+    "paymentMethodAttached": false,
+    "automaticOverageEnabled": false,
+    "reviewedAt": null,
+    "evidence": null
+  },
+  "startingCreditUsd": null,
+  "endingCreditUsd": null,
+  "burnExperiment": {
+    "startedAt": null,
+    "endedAt": null,
+    "resourceSummary": "No LingoQL resource has been provisioned."
+  }
+}

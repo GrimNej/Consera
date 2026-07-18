@@ -13,6 +13,11 @@ All implementation records derive from [`../CONSERA_IMPLEMENTATION_BLUEPRINT.md`
 | `docs/platform-contract-report.json`    | 3.2–3.4                | Executable platform-gate evidence           |
 | `docs/cost-model.md`                    | 2.3, 6.4, 26           | LingoQL burn and reserve evidence           |
 | `docs/threat-model.md`                  | 17, 19, 24             | Security and privacy controls               |
+| `docs/research/`                        | 3, 8.1, 33.6           | Current official-platform research records  |
+| `docs/sub0-contract-experiments.md`     | 3.2â€“3.4, 28.2        | H-04 remote probe procedure and evidence    |
+| `sub0/contract-tests/abi/`              | 3.4, 4.3â€“4.5         | Isolated Sub0 ABI contract experiments      |
+| `sub0/contract-tests/sql/`              | 3.4, 4.4               | Isolated PostgreSQL contract schema         |
+| `scripts/sub0-contract/`                | 3.4, 31â€“33           | Bounded remote contract execution helpers   |
 | `docs/architecture-decisions/`          | 33.5                   | Immutable decision rationale                |
 
 Any new production capability must be added here with its blueprint section(s), tests, and an ADR if it changes an architectural choice.

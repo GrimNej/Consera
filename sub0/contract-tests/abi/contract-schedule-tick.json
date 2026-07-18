@@ -1,0 +1,47 @@
+{
+  "id": "consera-contract-schedule-tick-v1",
+  "resource": "consera-contract-schedule-tick",
+  "tokenize": {
+    "type": "JWT",
+    "algorithm": "HS256",
+    "encryption_key": "$ENV.CONTRACT_JWT_KEY"
+  },
+  "protected": {
+    "provide_as": "Authorization",
+    "extract_claims": ["id"]
+  },
+  "actionables": [
+    {
+      "id": 1,
+      "mode": "QUERY",
+      "payload_validation": [
+        {
+          "field": {
+            "organizationId": {
+              "type": "NUMBER"
+            }
+          }
+        },
+        {
+          "field": {
+            "scheduleKey": {
+              "type": "STRING"
+            }
+          },
+          "min_length": 8,
+          "max_length": 120
+        }
+      ],
+      "sql_query": {
+        "query": "SELECT * FROM consera_contract.contract_schedule_tick($1, $2, $3)",
+        "parameters": [
+          "$PROTECTED.id",
+          "$PAYLOAD.organizationId",
+          "$PAYLOAD.scheduleKey"
+        ]
+      },
+      "returnables": ["schedule_state"]
+    }
+  ],
+  "returnables": ["schedule_state"]
+}

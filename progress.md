@@ -6,7 +6,7 @@ Source of truth: [`CONSERA_IMPLEMENTATION_BLUEPRINT.md`](./CONSERA_IMPLEMENTATIO
 
 - Current phase: Phase 0 — repository, platform contracts, and cost proof
 - Gate: `pnpm platform:gate` must pass before Phase 1
-- Resume marker: H-01 ready; local bootstrap commit `181f343a0066e60625b621fcb22c277896d21323`
+- Resume marker: H-01 verified; local contract-preparation work is in progress after `b5954dd`
 
 ## Phase 0 — bootstrap and operator records
 
@@ -19,6 +19,7 @@ Source of truth: [`CONSERA_IMPLEMENTATION_BLUEPRINT.md`](./CONSERA_IMPLEMENTATIO
 - [x] Run local quality baseline and record exact results
 - [x] Prepare H-01 verification script, harmless bootstrap commit, and remote checklist
 - [x] Verify H-01 GitHub remote (public `origin/main`, verified commit `ff50ec5`)
+- [x] Assemble the docs-driven Sub0 ABI package and executable remote contract runner; local checks recorded in `docs/baseline-results.md`
 
 ### Authentication identity integrity
 

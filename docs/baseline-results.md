@@ -33,12 +33,13 @@ No application lint, type-check, test, security, or architecture baseline exists
 | Command                   | Result                                                                                                     |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------- |
 | `pnpm peers check`        | pass; no peer dependency issues                                                                            |
-| `pnpm check`              | pass; formatting, ESLint zero-warning mode, strict TypeScript, and 6 unit/property tests                   |
+| `pnpm check`              | pass; formatting, ESLint zero-warning mode, strict TypeScript, and 8 unit/property tests                   |
 | `pnpm db:up`              | pass after starting Docker Desktop; PostgreSQL 18.2 local harness is reversible through `pnpm db:down`     |
 | `pnpm db:migrate:local`   | pass; applied `0001_contract_harness.sql`                                                                  |
-| `pnpm test:integration`   | pass; stored-function injected failure rolled back its mutation                                            |
-| `pnpm test:platform`      | pass; proves an unconnected report cannot pass the platform gate                                           |
+| `pnpm test:integration`   | pass; 3 local PostgreSQL tests including rollback, tenant schema, and fenced job/schedule behavior         |
+| `pnpm test:platform`      | pass; ABI guardrails plus proof that an unconnected report cannot pass the platform gate                   |
 | `pnpm platform:gate`      | expected fail: all eight mandatory checks plus background/scheduled execution remain untested pending H-04 |
+| `pnpm cost:preflight`     | expected fail: `startingCreditUsd` and `billingEvidence` are unavailable before H-02                      |
 | `pnpm check:architecture` | pass; dependency-cruiser and Knip clean                                                                    |
 | `pnpm build`              | pass; web and worker build clean after the documented Next.js `typedRoutes` migration                      |
 | `pnpm check:security`     | expected fail: Gitleaks, Semgrep, and Trivy are not installed on this machine                              |
@@ -54,3 +55,7 @@ After the first production build, ESLint scanned generated `apps/web/.next` outp
 - Trivy: unresolved. It remains unavailable as a host command and has not been represented as a passing scan.
 
 `pnpm check:security` remains intentionally failing until all three required scanners execute successfully through a reproducible local or CI path.
+
+## Contract-harness extension
+
+The isolated Sub0 ABI package, direct PostgreSQL schema script, remote runner, redeploy-sentinel probes, fenced background fallback, and schedule-deduplication fallback are present and locally tested. They have not contacted LingoQL or Sub0. `pnpm platform:gate` remains correctly closed until the H-04 evidence replaces every `not_tested` result in `docs/platform-contract-report.json`.

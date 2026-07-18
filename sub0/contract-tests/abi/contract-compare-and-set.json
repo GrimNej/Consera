@@ -1,0 +1,45 @@
+{
+  "id": "consera-contract-compare-and-set-v1",
+  "resource": "consera-contract-compare-and-set",
+  "tokenize": {
+    "type": "JWT",
+    "algorithm": "HS256",
+    "encryption_key": "$ENV.CONTRACT_JWT_KEY"
+  },
+  "protected": {
+    "provide_as": "Authorization",
+    "extract_claims": ["id"]
+  },
+  "actionables": [
+    {
+      "id": 1,
+      "mode": "QUERY",
+      "payload_validation": [
+        {
+          "field": {
+            "organizationId": {
+              "type": "NUMBER"
+            }
+          }
+        },
+        {
+          "field": {
+            "expectedVersion": {
+              "type": "NUMBER"
+            }
+          }
+        }
+      ],
+      "sql_query": {
+        "query": "SELECT * FROM consera_contract.contract_compare_and_set($1, $2, $3)",
+        "parameters": [
+          "$PROTECTED.id",
+          "$PAYLOAD.organizationId",
+          "$PAYLOAD.expectedVersion"
+        ]
+      },
+      "returnables": ["updated_version"]
+    }
+  ],
+  "returnables": ["updated_version"]
+}
