@@ -14,6 +14,6 @@
   "burnExperiment": {
     "startedAt": null,
     "endedAt": null,
-    "resourceSummary": "No LingoQL resource has been provisioned."
+    "resourceSummary": "H-03 server: 1 vCPU, 256 MB memory, 20 MB volume, 10 GB egress. It was stopped after the public health endpoint returned 502; the exact ending credit has not yet been recorded."
   }
 }

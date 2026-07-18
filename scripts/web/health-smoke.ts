@@ -25,17 +25,13 @@ async function waitForHealth(): Promise<unknown> {
 
 async function main(): Promise<void> {
   const webDirectory = path.resolve('apps/web');
-  const nextCli = path.join(webDirectory, 'node_modules/next/dist/bin/next');
-  const child = spawn(
-    process.execPath,
-    [nextCli, 'start', '--hostname', '127.0.0.1', '--port', String(port)],
-    {
-      cwd: webDirectory,
-      env: { ...process.env, HOST: '127.0.0.1', PORT: String(port) },
-      stdio: 'ignore',
-      shell: false,
-    },
-  );
+  const startScript = path.join(webDirectory, 'scripts', 'start-server.mjs');
+  const child = spawn(process.execPath, [startScript], {
+    cwd: webDirectory,
+    env: { ...process.env, HOST: '127.0.0.1', PORT: String(port) },
+    stdio: 'ignore',
+    shell: false,
+  });
 
   try {
     const health = await waitForHealth();
