@@ -6,7 +6,7 @@ Status: active as of 2026-07-18. This is a delivery control, not a substitute fo
 
 The first H-03 LingoQL server deployment built successfully but the public health endpoint returned `502`. The service was stopped after the account owner noticed the credit balance decreasing. The account owner then confirmed that the balance no longer decreased. The stopped-service dashboard showed a $5.02 service amount and $14.98 remaining credit. See `docs/platform-evidence/2026-07-18_H-03-credit-stop.md`.
 
-The build log confirms that this was a server deployment with 1 vCPU, 256 MB memory, a 20 MB volume, and 10 GB egress. Public LingoQL material describes compute as pay-as-you-go and static deployments as free; it does not provide a trustworthy public rate card for this account or resource combination. Actual dashboard balance and usage are therefore the only spending authority.
+The build log confirms that this was a server deployment with 1 vCPU, 256 MB memory, a 20 MB volume, and 10 GB egress. Public LingoQL material describes compute as pay-as-you-go and static deployments as free; it does not provide a trustworthy public rate card for this account or resource combination. Actual dashboard balance and usage are therefore the primary spending authority. The account owner reports that a LingoQL representative clarified the $5.02 as a one-time monthly charge; this is recorded in `docs/platform-evidence/2026-07-18_H-03-provider-billing-clarification.md`.
 
 ## Default workflow: local first
 
@@ -25,7 +25,7 @@ Before any action that can make LingoQL build, deploy, provision, or restart a r
 
 1. The account owner reads the dashboard's exact **remaining credit** and any **current usage** figure.
 2. We record those values without credentials in a dated evidence file.
-3. We agree on a maximum spend and a maximum elapsed runtime for that single proof. Until the provider exposes an itemized rate, the default is **no additional LingoQL spend** rather than a guessed cap.
+3. We agree on a maximum spend and a maximum elapsed runtime for that single proof. The reported monthly-charge clarification allows the implementation to resume, but it does not authorize unattended or unnecessary resources.
 4. The account owner starts only the named resource. We verify the exact acceptance criterion immediately.
 5. The account owner stops the resource immediately after the result is captured, successful or not.
 6. We record the ending balance and decide whether another proof is justified.

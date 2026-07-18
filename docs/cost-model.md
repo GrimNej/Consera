@@ -1,6 +1,6 @@
 # Cost model
 
-Status: controlled. A short H-03 server deployment was created on 2026-07-18, returned an external `502`, and was then stopped by the account owner. The account owner confirmed that credit stopped decreasing after the service was stopped. No payment method will be attached.
+Status: controlled. A short H-03 server deployment was created on 2026-07-18, returned an external `502`, and was then stopped by the account owner. The account owner confirmed that credit stopped decreasing after the service was stopped, then reported a provider clarification that the displayed $5.02 is a one-time monthly charge. No payment method will be attached.
 
 `docs/cost-record.json` is the machine-validated source for H-02 and H-07. `pnpm cost:preflight` refuses to pass until it has a sanitized H-02 evidence reference, at least $20 starting credit, no payment method, and automatic overage disabled.
 
