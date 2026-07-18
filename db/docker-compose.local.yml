@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:18.2-alpine
+    environment:
+      POSTGRES_DB: consera_contracts
+      POSTGRES_USER: consera
+      POSTGRES_PASSWORD: consera_local_only
+    ports:
+      - '54329:5432'
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U consera -d consera_contracts']
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    volumes:
+      - consera_contract_postgres:/var/lib/postgresql/data
+
+volumes:
+  consera_contract_postgres:

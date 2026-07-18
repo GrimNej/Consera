@@ -1,0 +1,13 @@
+{
+  "name": "@consera/observability",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "pino": "10.3.1"
+  }
+}

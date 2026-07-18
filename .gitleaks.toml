@@ -1,0 +1,9 @@
+title = "Consera secret-scan configuration"
+
+[allowlist]
+  description = "Generated build artifacts are ignored by Git and contain ephemeral Next.js preview keys."
+  paths = [
+    '''(^|/)apps/web/\.next/''',
+    '''(^|/)node_modules/''',
+    '''(^|/)\.secrets/'''
+  ]

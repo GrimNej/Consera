@@ -1,0 +1,25 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "workspaces": {
+    ".": {
+      "entry": [
+        "scripts/**/*.ts",
+        "db/scripts/**/*.ts",
+        "sub0/contract-tests/**/*.test.ts"
+      ],
+      "project": ["scripts/**/*.ts", "db/**/*.ts", "sub0/**/*.ts"]
+    },
+    "apps/web": {
+      "entry": ["src/app/**/*.tsx"],
+      "project": ["src/**/*.tsx"]
+    },
+    "apps/worker": {
+      "entry": ["src/index.ts"],
+      "project": ["src/**/*.ts"]
+    },
+    "packages/*": {
+      "entry": ["src/index.ts"],
+      "project": ["src/**/*.ts"]
+    }
+  }
+}

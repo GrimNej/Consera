@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "ES2024",
+    "lib": ["ES2024", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitOverride": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "ignoreDeprecations": "6.0",
+    "baseUrl": ".",
+    "paths": {
+      "@consera/ai-provider": ["packages/ai-provider/src/index.ts"],
+      "@consera/contracts": ["packages/contracts/src/index.ts"],
+      "@consera/domain": ["packages/domain/src/index.ts"],
+      "@consera/observability": ["packages/observability/src/index.ts"],
+      "@consera/persistence-contracts": ["packages/persistence-contracts/src/index.ts"],
+      "@consera/remote-boundary": ["packages/remote-boundary/src/index.ts"],
+      "@consera/test-fixtures": ["packages/test-fixtures/src/index.ts"],
+      "@consera/workflow-engine": ["packages/workflow-engine/src/index.ts"]
+    }
+  }
+}

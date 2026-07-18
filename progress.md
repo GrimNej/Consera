@@ -15,9 +15,10 @@ Source of truth: [`CONSERA_IMPLEMENTATION_BLUEPRINT.md`](./CONSERA_IMPLEMENTATIO
 - [x] Initialize Git on `main`
 - [x] Create mandatory operator records and blueprint traceability map
 - [x] Record initial repository-integrity baseline (`docs/baseline-results.md`)
-- [ ] Bootstrap workspace, local PostgreSQL, strict checks, fixtures, and contract harness
-- [ ] Run local quality baseline and record exact results
-- [ ] Prepare H-01 verification script, harmless bootstrap commit, and remote checklist
+- [x] Bootstrap workspace, local PostgreSQL, strict checks, fixtures, and contract harness
+- [x] Run local quality baseline and record exact results
+- [x] Prepare H-01 verification script, harmless bootstrap commit, and remote checklist
+- [ ] Verify H-01 GitHub remote (human action pending)
 
 ### Authentication identity integrity
 

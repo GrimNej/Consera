@@ -12,17 +12,17 @@ Status: unmeasured. No LingoQL resource has been provisioned and no payment meth
 
 ## Burn experiment record
 
-| Field | Value |
-|---|---|
-| Environment / resource sizes | pending H-03/H-04 |
-| Start timestamp (UTC) | pending |
-| End timestamp (UTC) | pending |
-| Starting credit | pending H-02 |
-| Ending credit | pending H-07 |
-| Duration hours | pending |
-| Observed burn per hour | pending |
-| Projected judging-period burn | pending |
-| Required 30% reserve | pending |
-| Selected mode | pending ADR-004 |
+| Field                         | Value             |
+| ----------------------------- | ----------------- |
+| Environment / resource sizes  | pending H-03/H-04 |
+| Start timestamp (UTC)         | pending           |
+| End timestamp (UTC)           | pending           |
+| Starting credit               | pending H-02      |
+| Ending credit                 | pending H-07      |
+| Duration hours                | pending           |
+| Observed burn per hour        | pending           |
+| Projected judging-period burn | pending           |
+| Required 30% reserve          | pending           |
+| Selected mode                 | pending ADR-004   |
 
 If the calculation fails the reserve requirement, Mode B, paused ingestion, or replay/source-only is selected; no paid fallback is allowed.

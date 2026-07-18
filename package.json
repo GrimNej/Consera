@@ -1,0 +1,59 @@
+{
+  "name": "consera",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@11.7.0",
+  "engines": {
+    "node": ">=24.14.0 <25",
+    "pnpm": ">=11.7.0 <12"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @consera/web dev",
+    "format": "prettier --write . --ignore-path .prettierignore",
+    "format:check": "prettier --check . --ignore-path .prettierignore",
+    "lint": "eslint . --max-warnings 0",
+    "typecheck": "pnpm -r typecheck",
+    "test": "vitest run --config vitest.config.ts",
+    "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test",
+    "check:architecture": "dependency-cruiser apps packages sub0 --config .dependency-cruiser.cjs && knip",
+    "check:security": "tsx scripts/security/run.ts",
+    "test:platform": "vitest run --config vitest.platform.config.ts",
+    "platform:gate": "tsx scripts/assert-platform-gate.ts",
+    "test:integration": "vitest run --config vitest.integration.config.ts",
+    "test:e2e": "playwright test",
+    "test:chaos": "vitest run --config vitest.chaos.config.ts",
+    "human:status": "tsx scripts/human-actions/status.ts",
+    "github:verify-h01": "tsx scripts/github/verify-h01.ts",
+    "secrets:status": "tsx scripts/secrets/status.ts",
+    "secrets:set": "tsx scripts/secrets/set.ts",
+    "secrets:verify": "tsx scripts/secrets/verify.ts",
+    "db:up": "docker compose -f db/docker-compose.local.yml up -d",
+    "db:down": "docker compose -f db/docker-compose.local.yml down",
+    "db:migrate:local": "tsx db/scripts/migrate-local.ts",
+    "db:reset:local": "docker compose -f db/docker-compose.local.yml down --volumes",
+    "build": "pnpm -r build"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@playwright/test": "1.61.1",
+    "@tailwindcss/postcss": "4.3.3",
+    "@types/node": "26.1.1",
+    "@types/pg": "8.20.0",
+    "@types/react": "19.2.17",
+    "dependency-cruiser": "18.1.0",
+    "eslint": "10.7.0",
+    "fast-check": "4.9.0",
+    "knip": "6.27.0",
+    "postcss": "8.5.19",
+    "prettier": "3.9.5",
+    "tsx": "4.23.1",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.64.0",
+    "vitest": "4.1.10"
+  },
+  "dependencies": {
+    "@consera/remote-boundary": "workspace:*",
+    "pg": "8.22.0",
+    "zod": "4.4.3"
+  }
+}

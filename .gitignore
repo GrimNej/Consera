@@ -17,6 +17,7 @@ data/
 .DS_Store
 Thumbs.db
 *.log
+*.tsbuildinfo
 
 # Generated evidence is retained locally but is never committed until sanitized.
 docs/platform-evidence/*.raw

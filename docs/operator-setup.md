@@ -4,13 +4,13 @@ This guide contains only actions that require the project owner. It never contai
 
 ## Current status
 
-No human action is required yet. Local Phase 0 bootstrap is in progress.
+H-01 is ready. All later checkpoints remain blocked until H-01 is verified.
 
 ## H-01 — GitHub remote
 
-When H-01 is opened, create or confirm a repository named `consera` under the intended account or organization. Use **Public** visibility so GitHub Actions public-repository minutes are available. Do not add a README, license, or `.gitignore` during creation because this repository already has tracked files. Authorize only the repository connection requested by the official GitHub flow.
+In GitHub, choose **+ → New repository**, choose the intended owner, enter `consera` as the repository name, select **Public**, and leave all initialization options off: no README, license, `.gitignore`, template, or imported code. GitHub's current guidance for adding an existing local project also says not to initialize the new remote, which avoids divergent first commits. Copy the repository's HTTPS or SSH clone URL from Quick Setup. Authorize no other apps or permissions.
 
-Expected result: the repository URL is visible and has no conflicting initial commit. Return only its HTTPS or SSH clone URL. The agent will add the remote, fetch it, push the prepared bootstrap commit, and verify visibility. Safe rollback: remove the remote or delete the empty repository from GitHub; local work remains intact.
+Expected result: the repository URL is visible and has no conflicting initial commit. Return only its HTTPS or SSH clone URL. The agent will add the remote, push the prepared bootstrap commit, and verify visibility with `pnpm github:verify-h01`. Safe rollback: remove the remote or delete the empty repository from GitHub; local work remains intact.
 
 ## Upcoming LingoQL and Sub0 actions
 
