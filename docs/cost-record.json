@@ -14,6 +14,6 @@
   "burnExperiment": {
     "startedAt": null,
     "endedAt": null,
-    "resourceSummary": "H-03 server: 1 vCPU, 256 MB memory, 20 MB volume, 10 GB egress. It was stopped after the public health endpoint returned 502. Dashboard-reported service amount: $5.02; remaining credit: $14.98; evidence: docs/platform-evidence/2026-07-18_H-03-credit-stop.md."
+    "resourceSummary": "H-03 server: initial configuration 1 vCPU, 256 MB memory, 20 MB volume, 10 GB egress; later memory-only test at 512 MB. It was stopped after the public health endpoint returned 502. Dashboard-reported service amount: $5.02; remaining credit: $14.98; evidence: docs/platform-evidence/2026-07-18_H-03-credit-stop.md and docs/platform-evidence/2026-07-18_H-03-memory-test.md."
   }
 }
