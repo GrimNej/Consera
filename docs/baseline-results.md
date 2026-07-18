@@ -39,7 +39,7 @@ No application lint, type-check, test, security, or architecture baseline exists
 | `pnpm test:integration`   | pass; 3 local PostgreSQL tests including rollback, tenant schema, and fenced job/schedule behavior         |
 | `pnpm test:platform`      | pass; ABI guardrails plus proof that an unconnected report cannot pass the platform gate                   |
 | `pnpm platform:gate`      | expected fail: all eight mandatory checks plus background/scheduled execution remain untested pending H-04 |
-| `pnpm cost:preflight`     | expected fail: `startingCreditUsd` and `billingEvidence` are unavailable before H-02                      |
+| `pnpm cost:preflight`     | expected fail: `startingCreditUsd` and `billingEvidence` are unavailable before H-02                       |
 | `pnpm check:architecture` | pass; dependency-cruiser and Knip clean                                                                    |
 | `pnpm build`              | pass; web and worker build clean after the documented Next.js `typedRoutes` migration                      |
 | `pnpm check:security`     | expected fail: Gitleaks, Semgrep, and Trivy are not installed on this machine                              |
