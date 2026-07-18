@@ -18,7 +18,7 @@ Source of truth: [`CONSERA_IMPLEMENTATION_BLUEPRINT.md`](./CONSERA_IMPLEMENTATIO
 - [x] Bootstrap workspace, local PostgreSQL, strict checks, fixtures, and contract harness
 - [x] Run local quality baseline and record exact results
 - [x] Prepare H-01 verification script, harmless bootstrap commit, and remote checklist
-- [ ] Verify H-01 GitHub remote (human action pending)
+- [x] Verify H-01 GitHub remote (public `origin/main`, verified commit `ff50ec5`)
 
 ### Authentication identity integrity
 

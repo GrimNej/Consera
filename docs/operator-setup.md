@@ -4,7 +4,7 @@ This guide contains only actions that require the project owner. It never contai
 
 ## Current status
 
-H-01 is ready. All later checkpoints remain blocked until H-01 is verified.
+H-01 is verified. Local platform-contract preparation continues before H-02 is requested.
 
 ## H-01 — GitHub remote
 
