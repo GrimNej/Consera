@@ -6,7 +6,7 @@ Source of truth: [`CONSERA_IMPLEMENTATION_BLUEPRINT.md`](./CONSERA_IMPLEMENTATIO
 
 - Current phase: Phase 0 — repository, platform contracts, and cost proof
 - Gate: `pnpm platform:gate` must pass before Phase 1
-- Resume marker: none
+- Resume marker: H-01 ready; local bootstrap commit `181f343a0066e60625b621fcb22c277896d21323`
 
 ## Phase 0 — bootstrap and operator records
 

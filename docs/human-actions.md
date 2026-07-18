@@ -21,7 +21,7 @@ Only non-secret confirmations and sanitized verification artifacts belong here. 
 
 ```yaml
 checkpoint: H-01
-git_commit_at_marker_creation: pending checkpoint-preparation commit
+git_commit_at_marker_creation: 181f343a0066e60625b621fcb22c277896d21323
 completed_tests:
   - pnpm check
   - pnpm test:integration
