@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "testedAt": "2026-07-18T00:00:00.000Z",
+  "lingoqlEnvironmentId": "not-connected",
+  "sub0Version": "not-connected",
+  "mandatory": {
+    "authenticationIdentityIntegrity": { "status": "not_tested", "evidence": [{ "command": "pending H-04", "expected": "Sub0 derives identity server-side", "observed": "No connected platform", "artifactPath": "docs/platform-evidence/README.md" }] },
+    "tenantReadIsolation": { "status": "not_tested", "evidence": [{ "command": "pending H-04", "expected": "Cross-tenant reads fail", "observed": "No connected platform", "artifactPath": "docs/platform-evidence/README.md" }] },
+    "tenantWriteIsolation": { "status": "not_tested", "evidence": [{ "command": "pending H-04", "expected": "Cross-tenant writes fail", "observed": "No connected platform", "artifactPath": "docs/platform-evidence/README.md" }] },
+    "uniqueConflictEnforcement": { "status": "not_tested", "evidence": [{ "command": "pending H-04", "expected": "Unique conflicts are deterministic", "observed": "No connected platform", "artifactPath": "docs/platform-evidence/README.md" }] },
+    "conditionalMutationAtomicity": { "status": "not_tested", "evidence": [{ "command": "pending H-04", "expected": "Exactly one of 50 CAS calls succeeds", "observed": "No connected platform", "artifactPath": "docs/platform-evidence/README.md" }] },
+    "multiMutationRollback": { "status": "not_tested", "evidence": [{ "command": "pending H-04", "expected": "Injected failure rolls back every mutation", "observed": "No connected platform", "artifactPath": "docs/platform-evidence/README.md" }] },
+    "databaseRedeployPersistence": { "status": "not_tested", "evidence": [{ "command": "pending H-04", "expected": "Data survives service redeploy", "observed": "No connected platform", "artifactPath": "docs/platform-evidence/README.md" }] },
+    "secretRuntimeInjection": { "status": "not_tested", "evidence": [{ "command": "pending H-04/H-06", "expected": "Secret is runtime-only and absent from client/build", "observed": "No connected platform", "artifactPath": "docs/platform-evidence/README.md" }] }
+  },
+  "alternatives": {
+    "backgroundExecution": { "status": "not_tested", "selectedImplementation": "PostgreSQL fenced job-table fallback pending contract test", "evidence": [{ "command": "pending H-04", "expected": "One bounded fenced claim path works", "observed": "No connected platform", "artifactPath": "docs/platform-evidence/README.md" }] },
+    "scheduledExecution": { "status": "not_tested", "selectedImplementation": "Bounded scheduler tick fallback pending contract test", "evidence": [{ "command": "pending H-04", "expected": "Duplicate schedule bucket is deduplicated", "observed": "No connected platform", "artifactPath": "docs/platform-evidence/README.md" }] },
+    "tenantSafeRealtime": { "status": "fallback_pass", "selectedImplementation": "Authenticated same-origin polling every two seconds", "evidence": [{ "command": "Architecture decision recorded before platform connection", "expected": "Polling uses BFF tenant actions, not direct subscription", "observed": "Selected P0 fallback; implementation test pending", "artifactPath": "docs/architecture-decisions/ADR-003-polling-first-realtime.md" }] }
+  }
+}
