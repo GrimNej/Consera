@@ -27,17 +27,17 @@ See `docs/credit-preservation-plan.md` for the phase-by-phase workflow.
 
 ## Burn experiment record
 
-| Field                         | Value                                                            |
-| ----------------------------- | ---------------------------------------------------------------- |
-| Environment / resource sizes  | H-03: 1 vCPU, 256 MB memory, 20 MB volume, 10 GB egress; stopped |
-| Start timestamp (UTC)         | pending                                                          |
-| End timestamp (UTC)           | pending                                                          |
-| Starting credit               | pending H-02                                                     |
-| Ending credit                 | pending H-07                                                     |
-| Duration hours                | pending                                                          |
-| Observed burn per hour        | pending                                                          |
-| Projected judging-period burn | pending                                                          |
-| Required 30% reserve          | pending                                                          |
-| Selected mode                 | pending ADR-004                                                  |
+| Field                         | Value                                                             |
+| ----------------------------- | ----------------------------------------------------------------- |
+| Environment / resource sizes  | H-03: 1 vCPU, 256 MB memory, 20 MB volume, 10 GB egress; stopped  |
+| Start timestamp (UTC)         | pending                                                           |
+| End timestamp (UTC)           | pending                                                           |
+| Starting credit               | pending H-02                                                      |
+| Ending credit                 | $14.98 after H-03                                                 |
+| Duration hours                | pending                                                           |
+| Observed burn per hour        | not calculable; dashboard reported $5.02 without an itemized rate |
+| Projected judging-period burn | pending                                                           |
+| Required 30% reserve          | pending                                                           |
+| Selected mode                 | pending ADR-004                                                   |
 
 If the calculation fails the reserve requirement, Mode B, paused ingestion, or replay/source-only is selected; no paid fallback is allowed.

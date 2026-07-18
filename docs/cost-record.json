@@ -10,10 +10,10 @@
     }
   },
   "startingCreditUsd": 20,
-  "endingCreditUsd": null,
+  "endingCreditUsd": 14.98,
   "burnExperiment": {
     "startedAt": null,
     "endedAt": null,
-    "resourceSummary": "H-03 server: 1 vCPU, 256 MB memory, 20 MB volume, 10 GB egress. It was stopped after the public health endpoint returned 502; the exact ending credit has not yet been recorded."
+    "resourceSummary": "H-03 server: 1 vCPU, 256 MB memory, 20 MB volume, 10 GB egress. It was stopped after the public health endpoint returned 502. Dashboard-reported service amount: $5.02; remaining credit: $14.98; evidence: docs/platform-evidence/2026-07-18_H-03-credit-stop.md."
   }
 }
