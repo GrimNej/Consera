@@ -5,19 +5,20 @@ All implementation records derive from [`../CONSERA_IMPLEMENTATION_BLUEPRINT.md`
 | Artifact                                | Blueprint sections     | Purpose                                     |
 | --------------------------------------- | ---------------------- | ------------------------------------------- |
 | `agents.md`                             | 0.1, 4, 33             | Operational invariants and work loop        |
-| `progress.md`                           | 31–33                  | Atomic, test-backed execution ledger        |
-| `docs/human-actions.md`                 | 4.11, 31.1, 33.6–33.10 | Human-only action ledger and resume markers |
+| `progress.md`                           | 31-33                  | Atomic, test-backed execution ledger        |
+| `docs/human-actions.md`                 | 4.11, 31.1, 33.6-33.10 | Human-only action ledger and resume markers |
 | `docs/operator-setup.md`                | 8.1, 31.1, 33.6        | Safe, current operator instructions         |
 | `docs/credential-matrix.md`             | 8.1, 24.4, 33.7        | Credential lifecycle without secret values  |
 | `docs/platform-connection-checklist.md` | 3, 8.1, 28.2           | Health and failure-isolation checks         |
-| `docs/platform-contract-report.json`    | 3.2–3.4                | Executable platform-gate evidence           |
+| `docs/platform-contract-report.json`    | 3.2-3.4                | Executable platform-gate evidence           |
 | `docs/cost-model.md`                    | 2.3, 6.4, 26           | LingoQL burn and reserve evidence           |
 | `docs/threat-model.md`                  | 17, 19, 24             | Security and privacy controls               |
 | `docs/research/`                        | 3, 8.1, 33.6           | Current official-platform research records  |
-| `docs/sub0-contract-experiments.md`     | 3.2â€“3.4, 28.2        | H-04 remote probe procedure and evidence    |
-| `sub0/contract-tests/abi/`              | 3.4, 4.3â€“4.5         | Isolated Sub0 ABI contract experiments      |
+| `docs/sub0-contract-experiments.md`     | 3.2-3.4, 28.2          | H-04 remote probe procedure and evidence    |
+| `docs/deployment-preflight.md`          | 8.1, 31.1, 33.6        | H-03 no-secret deployment configuration     |
+| `sub0/contract-tests/abi/`              | 3.4, 4.3-4.5           | Isolated Sub0 ABI contract experiments      |
 | `sub0/contract-tests/sql/`              | 3.4, 4.4               | Isolated PostgreSQL contract schema         |
-| `scripts/sub0-contract/`                | 3.4, 31â€“33           | Bounded remote contract execution helpers   |
+| `scripts/sub0-contract/`                | 3.4, 31-33             | Bounded remote contract execution helpers   |
 | `docs/architecture-decisions/`          | 33.5                   | Immutable decision rationale                |
 
 Any new production capability must be added here with its blueprint section(s), tests, and an ADR if it changes an architectural choice.

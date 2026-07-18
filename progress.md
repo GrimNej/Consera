@@ -21,6 +21,7 @@ Source of truth: [`CONSERA_IMPLEMENTATION_BLUEPRINT.md`](./CONSERA_IMPLEMENTATIO
 - [x] Verify H-01 GitHub remote (public `origin/main`, verified commit `ff50ec5`)
 - [x] Assemble the docs-driven Sub0 ABI package and executable remote contract runner; local checks recorded in `docs/baseline-results.md`
 - [x] Verify H-02 LingoQL credit and billing protections; `pnpm cost:preflight` passed
+- [x] Prepare no-secret LingoQL web deployment and local health verification for H-03
 
 ### Authentication identity integrity
 

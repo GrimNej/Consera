@@ -5,8 +5,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "start": "node ./scripts/start-server.mjs",
     "typecheck": "tsc --noEmit",
     "test": "vitest run --passWithNoTests"
+  },
+  "packageManager": "pnpm@11.7.0",
+  "engines": {
+    "node": ">=24.14.0 <25"
   },
   "dependencies": {
     "next": "16.2.10",

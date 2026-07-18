@@ -39,7 +39,9 @@
     "db:down": "docker compose -f db/docker-compose.local.yml down",
     "db:migrate:local": "tsx db/scripts/migrate-local.ts",
     "db:reset:local": "docker compose -f db/docker-compose.local.yml down --volumes",
-    "build": "pnpm -r build"
+    "build": "pnpm -r build",
+    "web:smoke": "tsx scripts/web/health-smoke.ts",
+    "lingoql:verify-h03": "tsx scripts/lingoql/verify-h03.ts"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",

@@ -8,7 +8,7 @@ export default function HomePage() {
   return (
     <main className="shell">
       <section className="hero" aria-labelledby="consera-title">
-        <p className="eyebrow">CONSER A / PHASE 0</p>
+        <p className="eyebrow">CONSERA / PHASE 0</p>
         <h1 id="consera-title">Know what every AI shift means for your product.</h1>
         <p className="lede">
           Consera is building the evidence, authorization, and recovery contracts before

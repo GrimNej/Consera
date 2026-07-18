@@ -63,3 +63,7 @@ The isolated Sub0 ABI package, direct PostgreSQL schema script, remote runner, r
 ## H-02 verified cost preflight
 
 At 2026-07-18T09:58:05Z, the account owner confirmed a $20.00 credit, no payment method, and automatic overage disabled. The sanitized evidence is `docs/platform-evidence/2026-07-18_H-02-lingoql-credit.md`; `pnpm cost:preflight` passed without reading or printing any account secret.
+
+## H-03 local deployment preflight
+
+`pnpm build` passed with the dynamic health route, and `pnpm web:smoke` passed against the production Next.js server bound to a local `HOST`/`PORT`. This is local readiness only; no LingoQL project, deployment, or GitHub integration has been created yet.
