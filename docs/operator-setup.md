@@ -4,7 +4,7 @@ This guide contains only actions that require the project owner. It never contai
 
 ## Current status
 
-H-01 and H-02 are verified. Local LingoQL deployment preparation continues before H-03 is requested; do not create a project, service, Sub0 resource, credential, or deployment until the next numbered checkpoint.
+H-01 and H-02 are verified. H-03 is ready: create only the minimal no-secret web deployment described below. Do not create a database, Sub0 resource, worker, scheduled job, custom domain, or credential yet.
 
 ## H-01 — GitHub remote
 
@@ -27,7 +27,22 @@ If the credit is not visible, return `credit_not_visible`; if billing protection
 
 ## Upcoming LingoQL and Sub0 actions
 
-H-03 preparation is now in progress. H-04 remains blocked until the project/repository connection and no-secret health deployment are verified.
+## H-03 â€” create the LingoQL project, connect GitHub, and deploy the health route
+
+LingoQL's public documentation confirms that it supports Next.js SSR apps, injects `HOST` and `PORT`, and uses Railpack or Nixpacks. It does not publish the authenticated dashboard labels for GitHub connection, so use the current dashboard's project/service and GitHub connection flow without granting access to any repository other than `GrimNej/Consera`.
+
+1. Sign in to LingoQL and create or select a project named **Consera**. Choose the smallest available web/app runtime; do not add data services.
+2. Use the official GitHub connection flow to authorize only `https://github.com/GrimNej/Consera.git`, then select branch `main`.
+3. Create one web/SSR service with source directory `apps/web`, build command `pnpm build`, start command `pnpm start`, and Railpack. Set **no** environment variables.
+4. Deploy the service using the platform's existing default access setting; do not change visibility, add a custom domain, or create a database/worker/Sub0 service. Wait until it reports healthy and copy its HTTPS health URL ending in `/api/health`.
+
+Return only: `project=Consera; service=<display-name>; health_url=https://<host>/api/health`. Do not send OAuth codes, passwords, cookies, API keys, build logs, project secrets, or connection strings.
+
+The agent will run `pnpm lingoql:verify-h03 -- <health_url>` and validate the exact health JSON. Safe rollback: cancel/delete only this empty no-secret web service and disconnect the GitHub app from this repository; no database data exists yet.
+
+## H-04 follows H-03
+
+H-04 remains blocked until the project/repository connection and no-secret health deployment are verified.
 
 ## Upcoming Groq action
 

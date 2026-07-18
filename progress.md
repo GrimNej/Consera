@@ -6,7 +6,7 @@ Source of truth: [`CONSERA_IMPLEMENTATION_BLUEPRINT.md`](./CONSERA_IMPLEMENTATIO
 
 - Current phase: Phase 0 — repository, platform contracts, and cost proof
 - Gate: `pnpm platform:gate` must pass before Phase 1
-- Resume marker: H-02 verified; preparing H-03 deployment connection after `80849f1`
+- Resume marker: H-03 waiting for project/repository/health deployment verification after `b574a41`
 
 ## Phase 0 — bootstrap and operator records
 
@@ -22,6 +22,7 @@ Source of truth: [`CONSERA_IMPLEMENTATION_BLUEPRINT.md`](./CONSERA_IMPLEMENTATIO
 - [x] Assemble the docs-driven Sub0 ABI package and executable remote contract runner; local checks recorded in `docs/baseline-results.md`
 - [x] Verify H-02 LingoQL credit and billing protections; `pnpm cost:preflight` passed
 - [x] Prepare no-secret LingoQL web deployment and local health verification for H-03
+- [ ] Verify H-03 LingoQL project, GitHub connection, and no-secret health deployment (waiting for user)
 
 ### Authentication identity integrity
 
