@@ -3,6 +3,7 @@ node_modules/
 dist/
 coverage/
 playwright-report/
+.playwright-cli/
 test-results/
 pnpm-lock.yaml
 CONSERA_IMPLEMENTATION_BLUEPRINT.md
