@@ -51,3 +51,9 @@ pnpm lingoql:verify-h03 -- https://<lingoql-host>/api/health
 ```
 
 The command accepts only an HTTPS health URL without embedded credentials, query parameters, or fragments. It validates the exact response schema and never needs a LingoQL password, API key, cookie, or connection string.
+
+## Current external result
+
+The intended `main` configuration was hard-deployed as deployment `6a5c5fc6d3a54524953d911d` on 2026-07-19. The service is ready internally on `0.0.0.0:8080`, but the public route returns `502`. A hard-rebuild A/B test with a framework-free HTTP probe produced the same result, isolating the remaining failure to LingoQL's service-specific public route. See `docs/platform-evidence/2026-07-19_H-03-lingoql-routing-isolation.md`.
+
+H-03 must not be marked verified until the same command returns HTTP `200` with the exact schema above from the real `main` deployment.

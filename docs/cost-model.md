@@ -1,6 +1,6 @@
 # Cost model
 
-Status: controlled. A short H-03 server deployment was created on 2026-07-18, returned an external `502`, and was then stopped by the account owner. The account owner confirmed that credit stopped decreasing after the service was stopped, then reported a provider clarification that the displayed $5.02 is a one-time monthly charge. No payment method will be attached.
+Status: controlled. The account owner reported a provider clarification that the displayed $5.02 is a one-time monthly charge rather than a rapidly recurring deduction. No payment method or automatic overage is enabled. The real `main` H-03 web service is currently running only because its service-specific public route is under active maintainer diagnosis; the public URL still returns `502`.
 
 `docs/cost-record.json` is the machine-validated source for H-02 and H-07. `pnpm cost:preflight` refuses to pass until it has a sanitized H-02 evidence reference, at least $20 starting credit, no payment method, and automatic overage disabled.
 
@@ -14,7 +14,7 @@ Status: controlled. A short H-03 server deployment was created on 2026-07-18, re
 
 ## Credit-preserving operating rule
 
-The project must not keep any LingoQL compute resource running between explicitly approved proof windows.
+The project must not keep any LingoQL compute resource running between explicitly approved proof windows or an active provider investigation approved by the account owner.
 
 - Work, unit tests, integration tests, architecture checks, builds, and browser smoke tests run locally by default.
 - The LingoQL-connected `main` branch is deployment-sensitive. Ongoing work is committed on a non-deployment branch and is not merged to `main` until a proof window is approved.

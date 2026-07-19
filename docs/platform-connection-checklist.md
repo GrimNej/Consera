@@ -6,7 +6,7 @@ Each integration requires a health test and a failure-isolation test before it i
 | ----------------- | ----------------------------------------------------- | ---------------------------------------------------------------- | ------------- |
 | Local Git         | `git status --short --branch`                         | Verify no unrelated file is changed before a commit              | verified      |
 | GitHub            | `pnpm github:verify-h01` and `git ls-remote origin`   | Invalid/removed remote must fail without modifying local history | verified H-01 |
-| LingoQL project   | Official project API/health deployment after H-03     | Invalid project ID must fail with sanitized error                | pending H-03  |
+| LingoQL project   | Official project API/health deployment after H-03     | Framework-free hard-deploy A/B isolates public route failures    | blocked H-03  |
 | Sub0              | Authenticated action probe after H-04                 | Caller-supplied identity override must be rejected               | pending H-04  |
 | PostgreSQL        | Transaction probe after H-04                          | Injected failure must roll back all mutations                    | pending H-04  |
 | Scheduler/worker  | Fenced claim probe after H-04                         | Expired generation cannot publish                                | pending H-04  |

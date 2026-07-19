@@ -71,3 +71,7 @@ At 2026-07-18T09:58:05Z, the account owner confirmed a $20.00 credit, no payment
 ## H-03 Linux lifecycle diagnosis
 
 On 2026-07-19, `pnpm web:smoke:linux` reproduced the LingoQL Node `24.18.0` runtime at 1 vCPU and 256 MB. Before the fix, the real application served health successfully but the pnpm-mediated container exited `1` on normal SIGTERM. After switching the reproducible runtime to the direct Node launcher, pinning its cwd, and normalizing only expected POSIX signal codes, the same command passed health and exited `0`. The evidence is `docs/platform-evidence/2026-07-19_H-03-linux-lifecycle.md`, with analysis in `docs/research/2026-07-19-h03-runtime-diagnosis.md`; public LingoQL verification remains pending.
+
+## H-03 LingoQL routing isolation
+
+On 2026-07-19, commit `dd94f3f` was hard-deployed with the direct Next.js launcher. LingoQL reported the service ready on `0.0.0.0:8080`, but the repository HTTPS verifier received `502`. A second hard build replaced Next.js with a bounded, framework-free Node HTTP probe; LingoQL accepted it on readiness trial 1 and logged its listener on `0.0.0.0:8080`, while both public routes still returned the same `502 Bad Gateway`. The valid hard-rebuild A/B evidence is `docs/platform-evidence/2026-07-19_H-03-lingoql-routing-isolation.md`. H-03 remains blocked on LingoQL's service-specific public route; no production integration has been represented as passing.

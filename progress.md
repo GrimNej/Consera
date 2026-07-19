@@ -6,7 +6,7 @@ Source of truth: [`CONSERA_IMPLEMENTATION_BLUEPRINT.md`](./CONSERA_IMPLEMENTATIO
 
 - Current phase: Phase 0 — repository, platform contracts, and cost proof
 - Gate: `pnpm platform:gate` must pass before Phase 1
-- Resume marker: H-03 blocked on LingoQL routing/health-check diagnosis after `271f3a1`; the service is stopped after an unsuccessful 512 MB memory-only test
+- Resume marker: H-03 blocked on the LingoQL-controlled public route after fixed commit `dd94f3f`; real `main` deployment `6a5c5fc6d3a54524953d911d` is running and ready internally, while public health returns `502`
 
 ## Phase 0 — bootstrap and operator records
 
@@ -22,8 +22,10 @@ Source of truth: [`CONSERA_IMPLEMENTATION_BLUEPRINT.md`](./CONSERA_IMPLEMENTATIO
 - [x] Assemble the docs-driven Sub0 ABI package and executable remote contract runner; local checks recorded in `docs/baseline-results.md`
 - [x] Verify H-02 LingoQL credit and billing protections; `pnpm cost:preflight` passed
 - [x] Prepare no-secret LingoQL web deployment and local health verification for H-03
-- [ ] Verify H-03 LingoQL project, GitHub connection, and no-secret health deployment (local lifecycle fix passes; fixed commit and direct Start Command must be deployed)
+- [ ] Verify H-03 LingoQL project, GitHub connection, and no-secret health deployment (fixed `main` and framework-free hard-build A/B both listen on `0.0.0.0:8080`; LingoQL public route still returns `502`)
 - [x] H-03 differential diagnosis: plain Node versus Next.js under exact Linux/Node/resources; code-side SIGTERM and cwd defects found and locally fixed (2026-07-19)
+- [x] Record H-03 hard-rebuild A/B routing isolation and maintainer handoff (`docs/platform-evidence/2026-07-19_H-03-lingoql-routing-isolation.md`)
+- [x] Exclude ignored browser-session artifacts from repository formatting checks (`.playwright-cli/`)
 
 ### Authentication identity integrity
 

@@ -2,7 +2,7 @@
 
 Date: 2026-07-19
 
-Status: local cause found and fixed; LingoQL verification pending.
+Status: Consera lifecycle causes found and fixed; remaining public `502` isolated to LingoQL-controlled routing.
 
 ## Question
 
@@ -47,3 +47,16 @@ The launcher now pins the child cwd to `apps/web`, forwards SIGINT/SIGTERM, boun
 4. If the public URL still returns `502`, temporarily use `node apps/web/scripts/platform-probe.mjs` on the same image. A failing plain probe would isolate the remaining fault to LingoQL; a passing probe would isolate it to Next.js/runtime packaging.
 
 The plain probe is diagnostic only and cannot satisfy H-03's final Consera health contract.
+
+## Executed LingoQL A/B result
+
+The sequence was executed against hard-built deployment artifacts on 2026-07-19:
+
+1. the fixed direct Next.js launcher started on `0.0.0.0:8080`, while the public health route returned `502`;
+2. a framework-free Node HTTP probe was then hard-built into the same service and logged `platform_probe_ready` on `0.0.0.0:8080`;
+3. LingoQL accepted the probe on readiness trial 1; and
+4. public `GET /` and `GET /api/health` still returned the identical `502 Bad Gateway` response.
+
+The soft-redeploy attempt was excluded because the service log proved that it reused the prior Next.js image metadata. The hard-rebuild result is the valid isolation test.
+
+The remaining failure is not in the Consera handler or Next.js packaging. It is a LingoQL-controlled hostname-to-upstream routing or service attachment failure. This classification is deliberately service-specific; the evidence does not establish a platform-wide outage. Full timestamps, deployment IDs, headers, and the maintainer checklist are recorded in `docs/platform-evidence/2026-07-19_H-03-lingoql-routing-isolation.md`.
