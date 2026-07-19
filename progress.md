@@ -22,7 +22,8 @@ Source of truth: [`CONSERA_IMPLEMENTATION_BLUEPRINT.md`](./CONSERA_IMPLEMENTATIO
 - [x] Assemble the docs-driven Sub0 ABI package and executable remote contract runner; local checks recorded in `docs/baseline-results.md`
 - [x] Verify H-02 LingoQL credit and billing protections; `pnpm cost:preflight` passed
 - [x] Prepare no-secret LingoQL web deployment and local health verification for H-03
-- [ ] Verify H-03 LingoQL project, GitHub connection, and no-secret health deployment (blocked: process binds to `0.0.0.0:8080`, but public root and health routes return `502`)
+- [ ] Verify H-03 LingoQL project, GitHub connection, and no-secret health deployment (local lifecycle fix passes; fixed commit and direct Start Command must be deployed)
+- [x] H-03 differential diagnosis: plain Node versus Next.js under exact Linux/Node/resources; code-side SIGTERM and cwd defects found and locally fixed (2026-07-19)
 
 ### Authentication identity integrity
 

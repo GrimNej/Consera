@@ -39,7 +39,7 @@ While the second process reported ready, both of these HTTPS requests returned `
 
 The production launcher reads the injected `HOST` and `PORT`, and the runtime log proves that it bound to `0.0.0.0:8080`. The same launcher passes the local production smoke test. The application has no runtime secrets or external dependencies in this H-03 health deployment.
 
-Conclusion: this evidence does not support a Consera application startup failure. It indicates a LingoQL routing, health-check, or container-lifecycle issue that requires platform-side diagnosis.
+Conclusion as of 2026-07-18: this evidence did not identify a Consera startup failure. Follow-up Linux testing on 2026-07-19 found a Consera lifecycle defect after readiness: the pnpm-mediated process exited `1` on expected SIGTERM, and the direct launcher depended on pnpm's working directory. See `docs/research/2026-07-19-h03-runtime-diagnosis.md`. The earlier platform-only conclusion is superseded pending a deployment of the fix.
 
 ## Authenticated dashboard observation
 

@@ -1,5 +1,6 @@
 import { spawn } from 'node:child_process';
 import process from 'node:process';
+import { clearTimeout, setTimeout } from 'node:timers';
 import { fileURLToPath, URL } from 'node:url';
 
 const port = Number(process.env.PORT ?? '3000');
@@ -15,13 +16,30 @@ if (!/^[a-zA-Z0-9.:-]+$/u.test(host)) {
 const nextCli = fileURLToPath(
   new URL('../node_modules/next/dist/bin/next', import.meta.url),
 );
+const webDirectory = fileURLToPath(new URL('..', import.meta.url));
 const child = spawn(
   process.execPath,
   [nextCli, 'start', '--hostname', host, '--port', String(port)],
-  { stdio: 'inherit' },
+  { cwd: webDirectory, stdio: 'inherit' },
 );
 
+let requestedShutdownSignal = null;
+let forcedShutdownTimer;
+const expectedSignalExitCodes = new Map([
+  ['SIGINT', 130],
+  ['SIGTERM', 143],
+]);
+
 child.once('exit', (code, signal) => {
+  if (forcedShutdownTimer) clearTimeout(forcedShutdownTimer);
+  if (
+    requestedShutdownSignal !== null &&
+    (signal === requestedShutdownSignal ||
+      code === expectedSignalExitCodes.get(requestedShutdownSignal))
+  ) {
+    process.exitCode = 0;
+    return;
+  }
   if (signal) {
     process.exitCode = 1;
     return;
@@ -30,5 +48,11 @@ child.once('exit', (code, signal) => {
 });
 
 for (const signal of ['SIGINT', 'SIGTERM']) {
-  process.on(signal, () => child.kill(signal));
+  process.once(signal, () => {
+    if (requestedShutdownSignal !== null) return;
+    requestedShutdownSignal = signal;
+    child.kill(signal);
+    forcedShutdownTimer = setTimeout(() => child.kill('SIGKILL'), 10_000);
+    forcedShutdownTimer.unref();
+  });
 }

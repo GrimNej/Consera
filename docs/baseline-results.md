@@ -66,4 +66,8 @@ At 2026-07-18T09:58:05Z, the account owner confirmed a $20.00 credit, no payment
 
 ## H-03 local deployment preflight
 
-`pnpm build` passed with the dynamic health route, and `pnpm web:smoke` passed against the production Next.js server bound to a local `HOST`/`PORT`. This is local readiness only; no LingoQL project, deployment, or GitHub integration has been created yet.
+`pnpm build` passed with the dynamic health route, and `pnpm web:smoke` passed against the production Next.js server bound to a local `HOST`/`PORT`. At that capture point this was local readiness only; the later LingoQL deployment history is recorded in the H-03 evidence files.
+
+## H-03 Linux lifecycle diagnosis
+
+On 2026-07-19, `pnpm web:smoke:linux` reproduced the LingoQL Node `24.18.0` runtime at 1 vCPU and 256 MB. Before the fix, the real application served health successfully but the pnpm-mediated container exited `1` on normal SIGTERM. After switching the reproducible runtime to the direct Node launcher, pinning its cwd, and normalizing only expected POSIX signal codes, the same command passed health and exited `0`. The evidence is `docs/platform-evidence/2026-07-19_H-03-linux-lifecycle.md`, with analysis in `docs/research/2026-07-19-h03-runtime-diagnosis.md`; public LingoQL verification remains pending.

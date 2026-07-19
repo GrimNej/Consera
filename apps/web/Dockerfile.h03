@@ -1,0 +1,17 @@
+FROM node:24.18.0-bookworm-slim
+
+WORKDIR /app
+
+RUN corepack enable
+
+COPY . .
+
+RUN pnpm install --frozen-lockfile
+RUN pnpm --filter @consera/web build
+
+ENV HOST=0.0.0.0
+ENV PORT=8080
+
+EXPOSE 8080
+
+CMD ["node", "apps/web/scripts/start-server.mjs"]
