@@ -13,15 +13,21 @@ if (!/^[a-zA-Z0-9.:-]+$/u.test(host)) {
   throw new Error('HOST contains unsupported characters.');
 }
 
-const nextCli = fileURLToPath(
-  new URL('../node_modules/next/dist/bin/next', import.meta.url),
+const standaloneServer = fileURLToPath(
+  new URL('../.next/standalone/apps/web/server.js', import.meta.url),
 );
-const webDirectory = fileURLToPath(new URL('..', import.meta.url));
-const child = spawn(
-  process.execPath,
-  [nextCli, 'start', '--hostname', host, '--port', String(port)],
-  { cwd: webDirectory, stdio: 'inherit' },
+const standaloneDirectory = fileURLToPath(
+  new URL('../.next/standalone/apps/web/', import.meta.url),
 );
+const child = spawn(process.execPath, [standaloneServer], {
+  cwd: standaloneDirectory,
+  env: {
+    ...process.env,
+    HOSTNAME: host,
+    PORT: String(port),
+  },
+  stdio: 'inherit',
+});
 
 let requestedShutdownSignal = null;
 let forcedShutdownTimer;
