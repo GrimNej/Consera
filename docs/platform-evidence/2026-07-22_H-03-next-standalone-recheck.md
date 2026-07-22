@@ -110,6 +110,8 @@ The current runtime log recorded:
 
 Live metrics showed 86 MB memory in use from 512 MB and the service state `Running`.
 
+After the evidence was captured, commits `ca62083` and `eaeeb9f` were fast-forwarded to `main` and pushed. The LingoQL Git Branch setting was then restored to `main` without replacing the inspected running container. Deployment `6a608c4a9e4a08e1d9907db5` therefore remains the live standalone runtime for maintainer inspection, while future deployments again follow `main`.
+
 ## Public ingress result
 
 At `2026-07-22T09:27:55Z`, independent requests to both public routes returned the same 11-byte response:
