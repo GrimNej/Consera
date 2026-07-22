@@ -6,7 +6,7 @@ Source of truth: [`CONSERA_IMPLEMENTATION_BLUEPRINT.md`](./CONSERA_IMPLEMENTATIO
 
 - Current phase: Phase 0 — repository, platform contracts, and cost proof
 - Gate: `pnpm platform:gate` must pass before Phase 1
-- Resume marker: H-03 blocked on the LingoQL-controlled public route after fixed commit `dd94f3f`; real `main` deployment `6a5c5fc6d3a54524953d911d` is running and ready internally, while public health returns `502`
+- Resume marker: H-03 remains blocked on the service-specific LingoQL public ingress after standalone deployment `6a608c4a9e4a08e1d9907db5`; deployed code `ca62083` is ready internally on `0.0.0.0:8080`, while LingoQL Analytics records public `/` and `/api/health` requests as `502`
 
 ## Phase 0 — bootstrap and operator records
 
@@ -26,6 +26,8 @@ Source of truth: [`CONSERA_IMPLEMENTATION_BLUEPRINT.md`](./CONSERA_IMPLEMENTATIO
 - [x] H-03 differential diagnosis: plain Node versus Next.js under exact Linux/Node/resources; code-side SIGTERM and cwd defects found and locally fixed (2026-07-19)
 - [x] Record H-03 hard-rebuild A/B routing isolation and maintainer handoff (`docs/platform-evidence/2026-07-19_H-03-lingoql-routing-isolation.md`)
 - [x] Exclude ignored browser-session artifacts from repository formatting checks (`.playwright-cli/`)
+- [x] Re-audit H-03 deploy path, start command, and public link after maintainer feedback; canonical standalone runtime passes locally and on LingoQL, but edge-to-service requests still return `502` (`docs/platform-evidence/2026-07-22_H-03-next-standalone-recheck.md`)
+- [ ] Obtain a LingoQL service-ingress repair or sanitized upstream diagnosis for deployment `6a608c4a9e4a08e1d9907db5`, then rerun the H-03 verifier
 
 ### Authentication identity integrity
 
